@@ -1,104 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21223" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21223" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i2X-CW-mHN">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21204"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="kea-1C-rCO">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="i2X-CW-mHN" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aWM-ew-0VA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vCE-Co-0QD" userLabel="memeView">
-                                <rect key="frame" x="0.0" y="134.33333333333331" width="414" height="627.33333333333348"/>
-                                <color key="backgroundColor" systemColor="labelColor"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4u-ji-zJR">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Meme Me" id="9Oh-NN-BtB" userLabel="Meme Me">
+                                        <barButtonItem key="leftBarButtonItem" image="square.and.arrow.up" catalog="system" id="LqW-nD-mdv" userLabel="shareBarItem">
+                                            <connections>
+                                                <action selector="shareAction:" destination="i2X-CW-mHN" id="mpZ-LJ-SJP"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15c-n7-Fbt">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Gmc-eb-csQ"/>
+                                    <barButtonItem title="Album" id="RAl-Tq-vAH" userLabel="albumBarItem">
+                                        <connections>
+                                            <action selector="imageSelection:" destination="i2X-CW-mHN" id="5Wg-jR-RJG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ZYj-N9-FcD"/>
+                                    <barButtonItem image="camera" catalog="system" id="EBQ-K3-48s" userLabel="cameraBarItem">
+                                        <connections>
+                                            <action selector="imageSelection:" destination="i2X-CW-mHN" id="zD2-0N-gi6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="SsR-YU-HOq"/>
+                                </items>
+                            </toolbar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NYS-fR-rA8" userLabel="memeView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39h-18-i7b" userLabel="shareButton">
-                                <rect key="frame" x="17" y="98.333333333333329" width="48" height="33.999999999999986"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system"/>
-                                <connections>
-                                    <action selector="shareAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E4m-zA-3Vb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5L-M8-ktV" userLabel="albumButton">
-                                <rect key="frame" x="55" y="811.66666666666663" width="73" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Album"/>
-                                <connections>
-                                    <action selector="albumAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iGT-Zs-tTt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qin-pu-gk2" userLabel="cameraButton">
-                                <rect key="frame" x="286" y="811.66666666666663" width="56" height="34"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="camera" catalog="system"/>
-                                <connections>
-                                    <action selector="cameraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FTL-KV-TeR"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP TEXT" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J8a-Dc-YTA" userLabel="topText">
-                                <rect key="frame" x="41.333333333333343" y="147" width="331.33333333333326" height="62.333333333333343"/>
+                            <textField opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP TEXT" placeholder="TOP TEXT" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="8i5-BE-7hb">
+                                <rect key="frame" x="0.0" y="108.00000000000001" width="414" height="62.666666666666671"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="50"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM TEXT" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oQm-Z0-YWa" userLabel="bottomText">
-                                <rect key="frame" x="41.333333333333343" y="661.66666666666663" width="331.33333333333326" height="62.333333333333371"/>
+                            <textField opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM TEXT" placeholder="TOP TEXT" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="khr-Gv-udm">
+                                <rect key="frame" x="0.0" y="730.33333333333337" width="414" height="62.666666666666629"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="50"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="7b7-Pe-FQP"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="oQm-Z0-YWa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="0PR-jc-PgO"/>
-                            <constraint firstItem="vCE-Co-0QD" firstAttribute="top" secondItem="39h-18-i7b" secondAttribute="bottom" constant="2" id="4kS-Qw-BvX"/>
-                            <constraint firstItem="oQm-Z0-YWa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9fv-QV-nlm"/>
-                            <constraint firstItem="vCE-Co-0QD" firstAttribute="top" secondItem="J8a-Dc-YTA" secondAttribute="bottom" constant="-75" id="I7f-Ki-loD"/>
-                            <constraint firstItem="vCE-Co-0QD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JhP-LE-AjI"/>
-                            <constraint firstItem="T5L-M8-ktV" firstAttribute="top" secondItem="vCE-Co-0QD" secondAttribute="bottom" constant="50" id="KnF-Co-xXH"/>
-                            <constraint firstItem="oQm-Z0-YWa" firstAttribute="top" secondItem="vCE-Co-0QD" secondAttribute="bottom" constant="-100" id="KqV-NI-Kff"/>
-                            <constraint firstItem="vCE-Co-0QD" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="PcB-sw-491"/>
-                            <constraint firstItem="J8a-Dc-YTA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XnN-9g-g3M"/>
-                            <constraint firstItem="Qin-pu-gk2" firstAttribute="top" secondItem="vCE-Co-0QD" secondAttribute="bottom" constant="50" id="ZCQ-gl-N6Y"/>
-                            <constraint firstItem="Qin-pu-gk2" firstAttribute="leading" secondItem="vCE-Co-0QD" secondAttribute="trailing" constant="-128" id="aK4-Sw-dEa"/>
-                            <constraint firstItem="J8a-Dc-YTA" firstAttribute="width" secondItem="vCE-Co-0QD" secondAttribute="width" multiplier="0.8" id="bgm-DR-pfK"/>
-                            <constraint firstItem="vCE-Co-0QD" firstAttribute="leading" secondItem="T5L-M8-ktV" secondAttribute="trailing" constant="-128" id="qBl-WK-7hq"/>
-                            <constraint firstItem="vCE-Co-0QD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qxP-gk-khV"/>
-                            <constraint firstItem="vCE-Co-0QD" firstAttribute="leading" secondItem="39h-18-i7b" secondAttribute="trailing" constant="-65" id="t2f-ET-ZI1"/>
-                            <constraint firstItem="vCE-Co-0QD" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="ulI-tR-DES"/>
+                            <constraint firstItem="X4u-ji-zJR" firstAttribute="trailing" secondItem="7b7-Pe-FQP" secondAttribute="trailing" id="1qH-Tu-21q"/>
+                            <constraint firstItem="8i5-BE-7hb" firstAttribute="trailing" secondItem="NYS-fR-rA8" secondAttribute="trailing" id="2Or-EU-VX7"/>
+                            <constraint firstItem="NYS-fR-rA8" firstAttribute="top" secondItem="X4u-ji-zJR" secondAttribute="bottom" id="39F-yH-yms"/>
+                            <constraint firstItem="15c-n7-Fbt" firstAttribute="top" secondItem="NYS-fR-rA8" secondAttribute="bottom" id="7K4-VG-LQf"/>
+                            <constraint firstItem="khr-Gv-udm" firstAttribute="trailing" secondItem="NYS-fR-rA8" secondAttribute="trailing" id="8tD-Zh-JlK"/>
+                            <constraint firstItem="15c-n7-Fbt" firstAttribute="bottom" secondItem="7b7-Pe-FQP" secondAttribute="bottom" id="ATl-0N-phe"/>
+                            <constraint firstItem="khr-Gv-udm" firstAttribute="bottom" secondItem="NYS-fR-rA8" secondAttribute="bottom" constant="-20" id="Fo1-47-swQ"/>
+                            <constraint firstItem="NYS-fR-rA8" firstAttribute="leading" secondItem="7b7-Pe-FQP" secondAttribute="leading" id="HQ6-PM-NbT"/>
+                            <constraint firstItem="khr-Gv-udm" firstAttribute="leading" secondItem="NYS-fR-rA8" secondAttribute="leading" id="IIM-mL-hYo"/>
+                            <constraint firstItem="8i5-BE-7hb" firstAttribute="top" secondItem="NYS-fR-rA8" secondAttribute="top" constant="20" id="JaM-TJ-G0v"/>
+                            <constraint firstItem="15c-n7-Fbt" firstAttribute="trailing" secondItem="7b7-Pe-FQP" secondAttribute="trailing" id="S9e-qs-zmb"/>
+                            <constraint firstItem="8i5-BE-7hb" firstAttribute="leading" secondItem="NYS-fR-rA8" secondAttribute="leading" id="XrA-1G-MTT"/>
+                            <constraint firstItem="X4u-ji-zJR" firstAttribute="leading" secondItem="7b7-Pe-FQP" secondAttribute="leading" id="eEC-vH-g91"/>
+                            <constraint firstItem="X4u-ji-zJR" firstAttribute="top" secondItem="7b7-Pe-FQP" secondAttribute="top" id="jHb-DE-3t6"/>
+                            <constraint firstItem="NYS-fR-rA8" firstAttribute="trailing" secondItem="7b7-Pe-FQP" secondAttribute="trailing" id="nzC-tQ-qph"/>
+                            <constraint firstItem="15c-n7-Fbt" firstAttribute="leading" secondItem="7b7-Pe-FQP" secondAttribute="leading" id="xsw-lo-jag"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tJG-hf-YzS"/>
+                    <navigationItem key="navigationItem" id="BB8-o4-pSl"/>
                     <connections>
-                        <outlet property="albumButton" destination="T5L-M8-ktV" id="cUG-vv-hAX"/>
-                        <outlet property="cameraButton" destination="Qin-pu-gk2" id="SMM-cz-R5t"/>
-                        <outlet property="memeView" destination="vCE-Co-0QD" id="zLZ-Xh-8ba"/>
-                        <outlet property="shareButton" destination="39h-18-i7b" id="Fr1-Np-z3R"/>
+                        <outlet property="albumButton" destination="RAl-Tq-vAH" id="KYd-gS-hbm"/>
+                        <outlet property="bottomText" destination="khr-Gv-udm" id="Eif-jh-5k0"/>
+                        <outlet property="cameraButton" destination="EBQ-K3-48s" id="664-8I-5kz"/>
+                        <outlet property="memeView" destination="NYS-fR-rA8" id="xVP-79-2K7"/>
+                        <outlet property="navBar" destination="X4u-ji-zJR" id="PbN-S2-LZP"/>
+                        <outlet property="shareButton" destination="LqW-nD-mdv" id="y3U-pd-uA7"/>
+                        <outlet property="toolBar" destination="15c-n7-Fbt" id="XFv-g9-KmY"/>
+                        <outlet property="topText" destination="8i5-BE-7hb" id="CDB-Ng-spP"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3NK-81-MuH" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.38461538461539" y="32.701421800947863"/>
+            <point key="canvasLocation" x="1008.6956521739131" y="65.625"/>
         </scene>
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="128" height="93"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
