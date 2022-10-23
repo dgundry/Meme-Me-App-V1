@@ -88,10 +88,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillAppear(animated)
         cameraButton.isEnabled = false //UIImagePickerController.isSourceTypeAvailable(.camera)
         shareButton.isEnabled = false
+        subscribeToKeyboardNotifications()
+
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        unsubscribeFromKeyboardNotifications()
+    }
+    func subscribeToKeyboardNotifications() {
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+
+    func unsubscribeFromKeyboardNotifications() {
+
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    @objc func keyboardWillShow(_ notification:Notification) {
+
+        view.frame.origin.y -= getKeyboardHeight(notification)
+    }
+
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
     }
 }
     
