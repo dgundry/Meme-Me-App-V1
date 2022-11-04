@@ -123,7 +123,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     }
     @objc func keyboardWillShow(_ notification:Notification) {
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        if(topText.isFirstResponder){
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }else{
+            view.frame.origin.y += getKeyboardHeight(notification)
+        }
     }
     @objc func keyboardWillHide(_ notification: Notification) {
         view.frame.origin.y = 0
