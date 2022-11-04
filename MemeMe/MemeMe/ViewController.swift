@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
     
     
     
@@ -86,7 +86,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        cameraButton.isEnabled = false //UIImagePickerController.isSourceTypeAvailable(.camera)
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         shareButton.isEnabled = false
         subscribeToKeyboardNotifications()
 
