@@ -100,7 +100,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+#if targetEnvironment(simulator)
+        cameraButton.isEnabled = false
+#else
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+#endif
         
         setupTextField(textField: topText, text: " TOP ")
         setupTextField(textField: bottomText, text : " BOTTOM ")
@@ -113,14 +117,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textField.backgroundColor = .clear
         textField.borderStyle = .none
         textField.autocapitalizationType = .allCharacters
-        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         shareButton.isEnabled = false
         subscribeToKeyboardNotifications()
-
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -130,11 +133,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-
+    
     func unsubscribeFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-
+        
     }
     @objc func keyboardWillShow(_ notification:Notification) {
         if bottomText.isFirstResponder {
@@ -150,5 +153,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return keyboardSize.cgRectValue.height
     }
 }
-    
+
 
